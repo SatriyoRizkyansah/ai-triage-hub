@@ -56,9 +56,6 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-# Monorepo apps (git submodules/separate repos)
-apps/web/
-
 # Temp files
 tmp/
 temp/
