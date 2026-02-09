@@ -12,12 +12,6 @@ dist/
 build/
 .next/
 out/
-*.js
-*.d.ts
-*.js.map
-*.d.ts.map
-!*.config.js
-!*.config.mjs
 
 # Misc
 .DS_Store

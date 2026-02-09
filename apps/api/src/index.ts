@@ -1,20 +1,18 @@
-import cors from "cors";
-import dotenv from "dotenv";
-import express, { Request, Response } from "express";
+import { app } from "./app";
+import { env } from "./env";
+import { logger } from "./lib/logger";
+import { prisma } from "./lib/prisma";
 
-dotenv.config();
-
-const app = express();
-const port = Number(process.env.PORT ?? 4000);
-
-app.use(cors());
-app.use(express.json());
-
-app.post("/tickets", (req: Request, res: Response) => {
-  console.log(req.body);
-  res.status(201).json({ status: "created" });
+const server = app.listen(env.PORT, () => {
+  logger.info(`API running on http://localhost:${env.PORT}`);
 });
 
-app.listen(port, () => {
-  console.log(`API running on http://localhost:${port}`);
+const shutdown = async (signal: string) => {
+  logger.info({ signal }, "Shutting down API server");
+  await prisma.$disconnect().catch((error) => logger.error({ error }, "Failed to disconnect Prisma"));
+  server.close(() => process.exit(0));
+};
+
+["SIGINT", "SIGTERM"].forEach((signal) => {
+  process.on(signal, () => shutdown(signal));
 });
