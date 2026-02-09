@@ -1,0 +1,13 @@
+{
+  "ui": "tui",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "interactive": true
+    },
+    "build": {
+      "outputs": ["dist/**"]
+    }
+  }
+}

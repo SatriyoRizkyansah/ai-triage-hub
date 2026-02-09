@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+.nyc_output/
+
+# Production
+dist/
+build/
+.next/
+out/
+*.js
+*.d.ts
+*.js.map
+*.d.ts.map
+!*.config.js
+!*.config.mjs
+
+# Misc
+.DS_Store
+*.pem
+.env
+.env.local
+.env.*.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+*.code-workspace
+
+# OS
+Thumbs.db
+.AppleDouble
+.LSOverride
+*.log
+
+# Turbo
+.turbo/
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Monorepo apps (git submodules/separate repos)
+apps/web/
+
+# Temp files
+tmp/
+temp/
+*.tmp
